@@ -23,6 +23,7 @@ public class LoginController
         return "login";
     }
 
+    @RequestMapping(value = "/loginCheck.html")
     public ModelAndView loginCheck(HttpServletRequest request, LoginCommand loginCommand)
     {
         boolean isValidUser = userService.hasMatchUser(loginCommand.getUserName(), loginCommand.getPassword());

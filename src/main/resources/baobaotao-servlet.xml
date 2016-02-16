@@ -10,8 +10,15 @@
        http://www.springframework.org/schema/context/spring-context-3.0.xsd
        ">
 
+        <!-- 扫描web包，应用spring的注解 -->
        <context:component-scan base-package="baobaotao.web"/>
 
+        <!-- 配置视图解析器，将ModelAndView及字符解析为具体的页面 -->
+        <!--
+        这里将new ModelAndView("main", ...)的第一个参数，也就是"main"与下面
+        配置文件中的prefix, suffix进行拼接，来得到具体视图文件，即jsp文件的路径,
+        这里拼接出来的就是"/WEB-INF/jsp/man.jsp"
+         -->
         <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
               p:viewClass="org.springframework.web.servlet.view.JstlView"
               p:prefix="/WEB-INF/jsp/"
