@@ -1,4 +1,4 @@
-package baobaotao.example;
+package baobaotao.examples;
 
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
