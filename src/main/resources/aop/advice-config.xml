@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       <bean id="greetingBeforeAdvice" class="baobaotao.examples.Advice.Before.GreetingBeforeAdvice"/>
+       <bean id="target" class="baobaotao.examples.Advice.NavieWaiter"/>
+       <bean id="greetingAfterAdvice" class="baobaotao.examples.Advice.After.GreetingAfterAdvice"/>
+
+        <!-- proxyInterfaces指定要被增强的接口  -->
+        <!-- interceptorNames指定增强 -->
+        <!-- target-ref指定被增强的具体实现类 -->
+       <bean id="waiter" class="org.springframework.aop.framework.ProxyFactoryBean"
+             p:proxyInterfaces="baobaotao.examples.Advice.Waiter"
+             p:interceptorNames="greetingBeforeAdvice,greetingAfterAdvice"
+             p:target-ref="target" />
+</beans>
