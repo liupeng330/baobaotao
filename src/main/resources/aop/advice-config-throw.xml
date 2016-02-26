@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       <bean id="transactionManager" class="baobaotao.examples.Advice.Throw.TransactionManager"/>
+       <bean id="forumServiceTarget" class="baobaotao.examples.Advice.Throw.ForumServiceImpl"/>
+
+        <!-- proxyInterfaces指定要被增强的接口  -->
+        <!-- interceptorNames指定增强 -->
+        <!-- target-ref指定被增强的具体实现类 -->
+       <bean id="forumService" class="org.springframework.aop.framework.ProxyFactoryBean"
+             p:interceptorNames="transactionManager"
+             p:target-ref="forumServiceTarget"
+             p:proxyTargetClass="true" />
+</beans>

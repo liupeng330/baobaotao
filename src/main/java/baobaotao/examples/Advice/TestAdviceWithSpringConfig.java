@@ -9,7 +9,8 @@ public class TestAdviceWithSpringConfig
 {
     public static void main(String[] args)
     {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("aop/advice-config.xml");
+//        ApplicationContext ctx = new ClassPathXmlApplicationContext("aop/advice-config.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("aop/advice-config-before-and-after.xml");
         Waiter waiter = (Waiter) ctx.getBean("waiter");
         waiter.greetTo("John");
         waiter.serveTo("Tom");
