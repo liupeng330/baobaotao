@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+        <!-- 定义两个目标bean -->
+       <bean id="waiterTarget" class="baobaotao.examples.Advisor.Waiter"/>
+       <bean id="sellerTarget" class="baobaotao.examples.Advisor.Seller"/>
+
+        <!-- 定义一个前置增强 -->
+       <bean id="greetingAdvice" class="baobaotao.examples.Advice.Before.GreetingBeforeAdvice"/>
+
+        <!-- 定义一个切面，并使用上面的增强进行属性注入 -->
+       <bean id="greetingAdvisor" class="baobaotao.examples.Advisor.GreetingAdvisor" p:advice-ref="greetingAdvice"/>
+
+        <!-- 指定一个公共的配置，以便让waiter和seller的bean复用它  -->
+        <!-- interceptorNames指定切面，它包含切点和增强 -->
+       <bean id="parent" abstract="true"
+             class="org.springframework.aop.framework.ProxyFactoryBean"
+             p:interceptorNames="greetingAdvisor"
+             p:proxyTargetClass="true"/>
+
+        <!-- 复用parent配置，定义waiter与seller代理 -->
+       <bean id="waiter" parent="parent" p:target-ref="waiterTarget"/>
+       <bean id="seller" parent="parent" p:target-ref="sellerTarget"/>
+</beans>
