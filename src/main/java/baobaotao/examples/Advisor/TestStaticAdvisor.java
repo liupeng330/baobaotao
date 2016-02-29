@@ -7,7 +7,8 @@ public class TestStaticAdvisor
 {
     public static void main(String[] args)
     {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("aop/advisor-static-config.xml");
+//        ApplicationContext ctx = new ClassPathXmlApplicationContext("aop/advisor-static-config.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("aop/advisor-regexp-config.xml");
         Waiter waiter = (Waiter) ctx.getBean("waiter");
         Seller seller = (Seller) ctx.getBean("seller");
         waiter.greetTo("John");
