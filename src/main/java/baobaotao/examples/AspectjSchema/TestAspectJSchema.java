@@ -1,0 +1,16 @@
+package baobaotao.examples.AspectjSchema;
+
+import baobaotao.examples.Advice.Waiter;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class TestAspectJSchema
+{
+    public static void main(String[] args)
+    {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("aop/aspectj-schema-config.xml");
+        Waiter waiter = (Waiter) ctx.getBean("waiter");
+        waiter.greetTo("my test for aspectj");
+        waiter.serveTo("my test for aspectj");
+    }
+}
