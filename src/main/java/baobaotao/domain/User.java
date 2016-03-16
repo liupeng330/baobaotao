@@ -1,12 +1,22 @@
 package baobaotao.domain;
+
+import org.hibernate.validator.constraints.*;
+
 import java.io.Serializable;
 import java.util.Date;
+
 
 public class User implements Serializable
 {
     private int userId;
+
+    @NotEmpty
     private String userName;
+
+    @Length(min = 5, max = 12)
     private String password;
+
+    @Range(min = 5, max = 88)
     private int credits;
     private String lastIp;
     private Date lastVisit;
