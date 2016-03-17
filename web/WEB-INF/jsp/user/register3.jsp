@@ -31,6 +31,13 @@
                 </td>
             </tr>
             <tr>
+                <td>Credit：</td>
+                <td>
+                    <form:errors path="credits" cssClass="errorClass"/>
+                    <form:input path="credits"/>
+                </td>
+            </tr>
+            <tr>
                 <td colspan="2">
                     <input type="submit" name="提交"/>
                 </td>

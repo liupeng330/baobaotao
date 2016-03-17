@@ -14,7 +14,7 @@ import javax.validation.Valid;
 @RequestMapping("/user")
 public class UserController
 {
-    @RequestMapping(value = "/handle91", method = RequestMethod.POST)
+    @RequestMapping(value = "/handle91.html", method = RequestMethod.POST)
     public String handle91(@Valid @ModelAttribute("user")User user, BindingResult bindingResult)
     {
         if(bindingResult.hasErrors())
@@ -27,7 +27,7 @@ public class UserController
         }
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/handle91.html", method = RequestMethod.GET)
     public String displayUser(ModelMap model)
     {
         model.addAttribute("user", new User());

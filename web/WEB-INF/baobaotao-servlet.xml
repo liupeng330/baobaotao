@@ -9,11 +9,10 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-3.0.xsd
        http://www.springframework.org/schema/mvc
-       http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+       http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
         <!-- 扫描web包，应用spring的注解 -->
        <context:component-scan base-package="baobaotao.web"/>
-
        <mvc:annotation-driven/>
 
 
@@ -27,4 +26,9 @@
               p:viewClass="org.springframework.web.servlet.view.JstlView"
               p:prefix="/WEB-INF/jsp/"
               p:suffix=".jsp" />
+
+        <bean class="org.springframework.context.support.ResourceBundleMessageSource"
+              id="messageSource">
+            <property name="basename" value="messages" />
+        </bean>
 </beans>
