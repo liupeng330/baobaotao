@@ -4,13 +4,14 @@ import org.hibernate.validator.constraints.*;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.validation.constraints.*;
 
 
 public class User implements Serializable
 {
     private int userId;
 
-    @NotEmpty
+    @Pattern(regexp = "w{4,30}")
     private String userName;
 
     @Length(min = 5, max = 12)

@@ -31,4 +31,10 @@
               id="messageSource">
             <property name="basename" value="messages" />
         </bean>
+
+        <!-- 文件上传解析器 -->
+        <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+              p:defaultEncoding="UTF-8"
+              p:maxUploadSize="52428000"
+              p:uploadTempDir="classpath:test"/>
 </beans>
