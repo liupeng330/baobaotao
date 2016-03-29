@@ -9,6 +9,10 @@
 
     <!-- 基于@AspectJ切面的驱动器 -->
     <aop:aspectj-autoproxy/>
+
+    <!-- 配置目标类的Bean -->
     <bean id="waiter" class="baobaotao.examples.Advice.NavieWaiter"/>
+
+    <!-- 配置基于AspectJ切面的Bean -->
     <bean class="baobaotao.examples.AspectJ.PreGreetingAspect"/>
 </beans>

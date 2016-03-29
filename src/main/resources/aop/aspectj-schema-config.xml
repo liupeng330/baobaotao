@@ -8,11 +8,16 @@
        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
        ">
     <aop:config proxy-target-class="true">
+        <!-- 此处定义了增强方法所在bean的id -->
         <aop:aspect ref="adviceMethod">
+            <!-- aop:before 表示的是前置增强 -->
+            <!-- method属性指定增强所在bean中的方法名 -->
+            <!-- pointcut属性指定切点表达式 -->
             <aop:before method="preGreeting" pointcut="target(baobaotao.examples.Advice.NavieWaiter) and execution(* greetTo(..))"/>
         </aop:aspect>
     </aop:config>
 
+    <!-- 这里就是增强的bean -->
     <bean id="adviceMethod" class="baobaotao.examples.AspectjSchema.AdviceMethod" />
     <bean id="waiter" class="baobaotao.examples.Advice.NavieWaiter"/>
 </beans>
